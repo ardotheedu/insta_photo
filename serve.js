@@ -1,15 +1,6 @@
-const express = require('express');
-const instagramdp = require("instagramdp");
+import fetch from 'node-fetch';
 
-// Constants
-const PORT = 4000;
-const HOST = '0.0.0.0';
-
-// App
-const app = express();
-const customers = [];
-app.use(express.json());
-app.get('/user',  (request, response) => {
+export default function handler(request, response) {
 	const {user} = request.query
 	console.log(request.query)
 	
@@ -20,7 +11,4 @@ app.get('/user',  (request, response) => {
 	
 	getProfilePicture()
 	
-});
-
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+}
